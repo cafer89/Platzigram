@@ -1,0 +1,14 @@
+Para errores con la clase R , importamos la clase con alt+intro
+
+En el método onCreate tenemos el parametro Bundle savedInstanceState que 
+obtiene el estado de la actividad que se ejecutó anteriormente.
+
+Cuando presionamos el boton de back las actividades se destruyen, es decir ejecutan
+el metodo onDestroy() del ciclo de vida de una activity.
+
+En la vista de proyecto de mi app, puedo ver las librerias importadas a mi proyecto,
+ahí encuentro las clases y widgets a las que tengo acceso y también puedo examinar
+cómo están compuestas las clases.
+
+Los name-spaces son las etiquetas que empiezan con xmlns:android/tools/app, y nos permiten
+utilizar atributos xml que empiezan con android/tools/app.

@@ -8,6 +8,7 @@ public class CreateAccountActivity extends AppCompatActivity
 {
 
 	@Override
+	//Bundle es el estado de la actividad anterior.
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
