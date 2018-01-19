@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Platzigram</string>
     <string name="hint_username">Nombre de usuario</string>
+    <string name="hint_password">contraseña</string>
 </resources>
