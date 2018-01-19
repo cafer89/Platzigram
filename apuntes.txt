@@ -11,7 +11,20 @@ ahí encuentro las clases y widgets a las que tengo acceso y también puedo examin
 cómo están compuestas las clases.
 
 Los name-spaces son las etiquetas que empiezan con xmlns:android/tools/app, y nos permiten
-utilizar atributos xml que empiezan con android/tools/app.
+utilizar atributos xml que empiezan con android/tools/app tanto en la etiqueta en la que están
+escritas como en las etiquetas hijas.
 
 El name-space tool context hace refencia al controlador(o archivo de java) que maneja
 lógicamente el widget o atributo xml en el que está contenido.
+
+android:layout-weight: asignas match_parent a width y le das el valor de 0.6 para que abarque
+solo 0.4 (entender bien por que)
+
+<<<TRATAMIENTO DE IMAGENES>>>
+
+Cuando nos dan una imagen(si, una sola) sin copias de diferentes densidades, debemos instalar
+el plug-in "android drawable importer" y hacer que éste plug in genere las copias de la imagen
+original en diferentes densidades para poder abarcar diferentes tamaños y densidades de pixeles
+en pantallas android.
+
+La propiedad android src
