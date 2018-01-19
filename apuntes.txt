@@ -12,3 +12,6 @@ cómo están compuestas las clases.
 
 Los name-spaces son las etiquetas que empiezan con xmlns:android/tools/app, y nos permiten
 utilizar atributos xml que empiezan con android/tools/app.
+
+El name-space tool context hace refencia al controlador(o archivo de java) que maneja
+lógicamente el widget o atributo xml en el que está contenido.
