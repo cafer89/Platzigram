@@ -34,15 +34,29 @@
             android:layout_weight="0.4">
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/visible"
+                android:id="@+id/usernameWrapper"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/masked"
+                    android:id="@+id/username"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:hint="@string/hint_username"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/passwordWrapper"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:passwordToggleEnabled="True">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:hint="@string/hint_password"
+                    android:inputType="textPassword"/>
 
             </android.support.design.widget.TextInputLayout>
 
