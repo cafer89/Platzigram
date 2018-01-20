@@ -12,7 +12,18 @@
         <item name="colorButtonNormal">@color/colorPrimaryDark</item>
         <item name="colorControlHighlight">@color/colorPrimary</item> <!--controla el efecto de onda-->
         <item name="android:textColor">@android:color/white</item> <!--añadimos android: por ser un atributo de v.21-->
-        
+        <!--Cuando definimos Android:  definimos que son propiedades exclusivas del actual API en adelante, al quitar Android: se hacen compatibles para todas las API.-->
+    </style>
+
+    <style name="EditTextWhite" parent="TextAppearance.AppCompat">
+        <item name="android:textColorHint">@color/editTextColorWhite</item>
+        <item name="android:textSize">@dimen/editText_TextSize</item>
+        <item name="android:textColorPrimary">@color/editTextColorWhite</item>
+        <item name="colorAccent">@color/editTextColorWhite</item>
+        <item name="colorControlNormal">@color/editTextColorWhite</item>
+        <item name="colorControlActivated">@color/editTextColorWhite</item>
+        <item name="android:textColorHighlight">@color/editTextColorWhite</item> <!--Estos dos atributos son para quitar errores-->
+        <item name="android:textColorLink">@color/editTextColorWhite</item>     <!--de render, proporcionamos attr para API 21-->
     </style>
 
 </resources>
