@@ -4,4 +4,6 @@
     <string name="hint_password">contraseña</string>
     <string name="btn_text_login">Login</string>
     <string name="img_description">platzigram_imagen</string>
+    <string name="dont_have_account">¿No tienes cuenta?</string>
+    <string name="create_here">Crea una aquí</string>
 </resources>

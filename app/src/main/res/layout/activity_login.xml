@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/img_description"
                 android:layout_centerInParent="true"
-                android:background="@drawable/platzigram"/>
+                android:src="@drawable/platzigram"/>
         </RelativeLayout>
 
         <ScrollView
@@ -75,6 +75,33 @@
                 android:layout_height="wrap_content"
                 android:theme="@style/RaisedButtonDark"
                 android:text="@string/btn_text_login"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/dontHaveAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dont_have_account"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/textsize_dont_have_account"/>
+
+                <TextView
+                    android:id="@+id/Create_here"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:text="@string/create_here"
+                    android:textSize="@dimen/textsize_dont_have_account"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:layout_toRightOf="@id/dontHaveAccount"
+                    android:onClick="goCreateAccount"/>
+            </RelativeLayout>
         </LinearLayout>
         </ScrollView>
     </LinearLayout>

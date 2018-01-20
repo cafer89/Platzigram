@@ -4,4 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="editText_TextSize">20sp</dimen>
     <dimen name="padding_horizontal_login">32dp</dimen>
+    <dimen name="textsize_dont_have_account">16sp</dimen>
 </resources>
