@@ -7,5 +7,12 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    
+    <style name="RaisedButtonDark" parent="Theme.AppCompat.Light">
+        <item name="colorButtonNormal">@color/colorPrimaryDark</item>
+        <item name="colorControlHighlight">@color/colorPrimary</item> <!--controla el efecto de onda-->
+        <item name="android:textColor">@android:color/white</item> <!--añadimos android: por ser un atributo de v.21-->
+        
+    </style>
 
 </resources>

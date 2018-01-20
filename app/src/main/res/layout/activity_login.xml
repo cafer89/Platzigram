@@ -24,6 +24,7 @@
                 android:id="@+id/logo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/img_description"
                 android:layout_centerInParent="true"
                 android:background="@drawable/platzigram"/>
         </RelativeLayout>
@@ -60,6 +61,13 @@
                     android:inputType="textPassword"/>
 
             </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/RaisedButtonDark"
+                android:text="@string/btn_text_login"/>
 
         </LinearLayout>
     </LinearLayout>

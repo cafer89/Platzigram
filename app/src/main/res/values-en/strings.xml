@@ -2,4 +2,6 @@
 <resources>
     <string name="hint_username">Username</string>
     <string name="hint_password">password</string>
+    <string name="btn_text_login">Login</string>
+    <string name="img_description">platzigram_imagen</string>
 </resources>

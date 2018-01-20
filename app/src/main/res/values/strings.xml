@@ -2,4 +2,6 @@
     <string name="app_name">Platzigram</string>
     <string name="hint_username">Nombre de usuario</string>
     <string name="hint_password">contraseña</string>
+    <string name="btn_text_login">Login</string>
+    <string name="img_description">platzigram_imagen</string>
 </resources>
