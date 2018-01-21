@@ -16,7 +16,7 @@ public class CreateAccountActivity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_account);
 		//implementamos título de toolbar desde values/string
-		showToolbar(getResources().getString(R.string.toolbar_title_create_account),false);
+		showToolbar(getResources().getString(R.string.toolbar_title_create_account),true);
 
 
 	}
