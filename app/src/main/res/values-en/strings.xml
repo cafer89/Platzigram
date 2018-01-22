@@ -11,4 +11,7 @@
     <string name="hint_user">Usuario</string>
     <string name="hint_confirm_password">Confirmar contraseña</string>
     <string name="btn_text_createAccount">Unete</string>
+    <string name="Username_card">Uriel Ramirez</string>
+    <string name="firstword_card">Hace</string>
+    <string name="likenumber_Card">10 me gusta</string>
 </resources>
