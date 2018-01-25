@@ -14,4 +14,7 @@
     <string name="Username_card">Uriel Ramirez</string>
     <string name="firstword_card">Hace</string>
     <string name="likenumber_Card">10 me gusta</string>
+    <string name="bottombar_search">Buscar</string>
+    <string name="bottombar_home">Inicio</string>
+    <string name="bottombar_profile">Perfil</string>
 </resources>
