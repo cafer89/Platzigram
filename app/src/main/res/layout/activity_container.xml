@@ -7,6 +7,13 @@
     android:layout_height="match_parent"
     tools:context="com.chemicalgorithm.platzigram.view.ContainerActivity">
 
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/bottomBar_height">
+    </FrameLayout>
+
     <include
         layout="@layout/bottombar"/>
 </RelativeLayout>
