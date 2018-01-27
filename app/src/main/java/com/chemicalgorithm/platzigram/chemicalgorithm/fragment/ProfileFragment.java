@@ -1,4 +1,5 @@
-package com.chemicalgorithm.platzigram.view.fragment;
+package com.chemicalgorithm.platzigram.chemicalgorithm.fragment;
+
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,11 +12,11 @@ import com.chemicalgorithm.platzigram.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SearchFragment extends Fragment
+public class ProfileFragment extends Fragment
 {
 
 
-	public SearchFragment()
+	public ProfileFragment()
 	{
 		// Required empty public constructor
 	}
@@ -26,7 +27,7 @@ public class SearchFragment extends Fragment
 							 Bundle savedInstanceState)
 	{
 		// Inflate the layout for this fragment
-		return inflater.inflate(R.layout.fragment_search, container, false);
+		return inflater.inflate(R.layout.fragment_profile, container, false);
 	}
 
 }

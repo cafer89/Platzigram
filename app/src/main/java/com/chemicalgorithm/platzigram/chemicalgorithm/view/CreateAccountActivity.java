@@ -1,10 +1,8 @@
-package com.chemicalgorithm.platzigram.view;
+package com.chemicalgorithm.platzigram.chemicalgorithm.view;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.widget.Button;
 
 import com.chemicalgorithm.platzigram.R;
 
