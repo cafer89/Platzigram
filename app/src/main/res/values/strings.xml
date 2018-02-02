@@ -22,4 +22,15 @@
     <string name="bottombar_search">Buscar</string>
     <string name="bottombar_home">Inicio</string>
     <string name="bottombar_profile">Perfil</string>
+    <string name="secondWord_detail">Me Gusta</string>
+    <string name="tittle_image_detail">\"Todo copas en la playa\"</string>
+    <string name="LoreIpsum">orem ipsum dolor sit amet, consectetur adipiscing elit.
+        Morbi volutpat volutpat laoreet. Nunc nisl urna, vulputate at cursus sed, vulputate vitae purus.
+        Aliquam pretium tempus orci, vitae sodales ex efficitur vel. Vivamus urna ex, tincidunt in varius sed,
+        blandit eget orci. Aliquam erat volutpat. Maecenas sed quam id sem fringilla condimentum.
+        Sed sagittis, nibh eu luctus venenatis, augue leo consequat augue, luctus ornare purus dolor et tellus.
+        Sed pulvinar sem eu ex cursus, ac dignissim neque venenatis. Donec leo elit, aliquam id iaculis ut, vehicula a justo.
+        Nunc malesuada, enim id dignissim tempor, nisi orci lobortis diam, iaculis rhoncus lorem quam id dolor.
+        Vestibulum dictum eleifend dolor eget placerat. Etiam id magna nibh. Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Nulla facilisi. Ut ac tincidunt massa. Praesent et odio tortor.</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.chemicalgorithm.platzigram.chemicalgorithm.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 
 import com.chemicalgorithm.platzigram.R;
 import com.chemicalgorithm.platzigram.chemicalgorithm.model.Picture;
+import com.chemicalgorithm.platzigram.chemicalgorithm.view.PictureDetailActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -22,7 +25,7 @@ public class PictureAdapterRecyclerView extends RecyclerView.Adapter<PictureAdap
 
 	private ArrayList<Picture> pictures;
 	private int resource;  //aqui llamamos al layout que hicimos (el CardView) R.layout.carview_picture.xml
-	private Activity activity; //pasamos como parametro la actividad desde donde se está llamando ésta clase
+	private Activity activity; // activity o contexto, pasamos como parametro la actividad desde donde se está llamando ésta clase
 								//ayuda bastante para llamar imagenes desde internet.
 
 
@@ -34,6 +37,11 @@ public class PictureAdapterRecyclerView extends RecyclerView.Adapter<PictureAdap
 	}
 
 	@Override
+	/**
+	 * viewType: a viewType based on position for reuse/recycle of views.
+	 * This method handles ViewHolder creation/recycle and view inflation based on itemViewType
+	 * returned by getItemViewType(...).
+	 */
 	public PictureViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
 	{
 
@@ -42,20 +50,40 @@ public class PictureAdapterRecyclerView extends RecyclerView.Adapter<PictureAdap
 	}
 
 	@Override
-	public void onBindViewHolder(PictureViewHolder holder, int position)
+	//this method binds data to the child views of the viewHolder.
+	public void onBindViewHolder(PictureViewHolder Pholder, int position)
 	{
 		Picture picture = pictures.get(position);
-		holder.usernameCard.setText(picture.getUserName());
-		holder.timeCard.setText(picture.getTime());
-		holder.likeNumberCard.setText(picture.getLike_number());
+		Pholder.usernameCard.setText(picture.getUserName());
+		Pholder.timeCard.setText(picture.getTime());
+		Pholder.likeNumberCard.setText(picture.getLike_number());
+		Picasso.with(activity).load(picture.getPicture()).into(Pholder.pictureCard);
+
+		Pholder.pictureCard.setOnClickListener(new View.OnClickListener()
+		{
+			@Override
+			public void onClick(View v)
+			{
+				Intent i = new Intent(activity, PictureDetailActivity.class);
+				activity.startActivity(i);
+			}
+		});
+
+
 	}
 
 	@Override
+	/**
+	 * this method is called several times to know the size limit of the list
+	 * returns the size of the dataset used for the adapter.
+	 */
+
 	public int getItemCount()
 	{
 		return pictures.size();
 	}
 
+	//ViewHolder: parent class that handles layout inflation and child view use
 	public class PictureViewHolder extends RecyclerView.ViewHolder
 	{
 		private ImageView pictureCard;
@@ -63,6 +91,7 @@ public class PictureAdapterRecyclerView extends RecyclerView.Adapter<PictureAdap
 		private TextView timeCard;
 		private TextView likeNumberCard;
 
+		//Click events belong into this method.
 		public PictureViewHolder(View itemView)
 		{
 			super(itemView);
