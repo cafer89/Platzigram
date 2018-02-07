@@ -30,5 +30,7 @@ dependencies {
     compile 'com.android.support:support-v4:25.2.0'
     compile 'com.android.support:recyclerview-v7:25.2.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'de.hdodenhof:circleimageview:2.2.0'
+    compile 'com.zoonref:simple-view-behavior:1.0'
     testCompile 'junit:junit:4.12'
 }

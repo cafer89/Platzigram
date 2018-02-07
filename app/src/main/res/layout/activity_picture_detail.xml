@@ -110,8 +110,14 @@
                 android:paddingTop="@dimen/paddingtop_tittleImageDetail"
                 android:paddingLeft="@dimen/padding_horizontal_textcontent_detail"
                 android:paddingRight="@dimen/padding_horizontal_textcontent_detail"/>
-
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
-
+    <android.support.design.widget.FloatingActionButton
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/FAB_picture_detail"
+        android:src="@drawable/heartempty"
+        app:layout_anchor="@+id/collapsingToolbar"
+        app:layout_anchorGravity="bottom|end">
+    </android.support.design.widget.FloatingActionButton>
 </android.support.design.widget.CoordinatorLayout>
