@@ -19,8 +19,6 @@ import java.util.ArrayList;
  */
 public class ProfileFragment extends Fragment
 {
-
-
 	public ProfileFragment()
 	{
 		// Required empty public constructor
@@ -62,10 +60,8 @@ public class ProfileFragment extends Fragment
 	public void showToolbar(String title , boolean upButton, View view)
 	{
 		Toolbar toolbar = (Toolbar) view.findViewById(R.id.ProfileToolbar);
-		//soporte para versiones anteriores a Lollipop
 		((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 		((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(title);
-		//en caso de que tenga botón de regreso o subir
 		((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
 	}
 
