@@ -23,7 +23,7 @@
     <dimen name="padding_horizontal_textcontent_detail">35dp</dimen>
     <dimen name="textSize_userName_profile">30sp</dimen>
     <dimen name="circle_image_profile">150dp</dimen>
-    <dimen name="marginTop_circleProfileImage">30dp</dimen>
+    <dimen name="marginTop_circleProfileImage">50dp</dimen>
     <dimen name="elevation_circleImage_profile">10dp</dimen>
     <dimen name="limitY_circleImageProfile">-206dp</dimen>
     <dimen name="marginTopToolbar_CircleImageProfile">-15dp</dimen>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -23,6 +24,25 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:statusBarScrim="@color/colorPrimary">
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/lib/com.chemicalgorithm.platzigram.chemicalgorithm.fragment.ProfileFragment"
+                android:id="@+id/Profile_image"
+                android:layout_width="@dimen/circle_image_profile"
+                android:layout_height="@dimen/circle_image_profile"
+                android:layout_gravity="center|top"
+                android:layout_marginTop="@dimen/marginTop_circleProfileImage"
+                android:elevation="@dimen/elevation_circleImage_profile"
+                android:src="@drawable/image"
+                app:TargetX="@dimen/activity_vertical_margin"
+                app:TargetY="@dimen/marginTopToolbar_CircleImageProfile"
+                app:dependTargetY="@dimen/limitY_circleImageProfile"
+                app:dependType="y"
+                app:dependsOn="@+id/appBarProfile"
+                app:layout_behavior="com.zoonref.SimpleViewBehavior"
+                app:targetHeight="@dimen/height_circleImage_toolbar"
+                app:targetWidth="@dimen/width_circleImage_toolbar">
+            </de.hdodenhof.circleimageview.CircleImageView>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -33,26 +53,6 @@
                 android:orientation="vertical"
                 android:paddingBottom="20dp"
                 android:paddingTop="200dp">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    xmlns:app="http://schemas.android.com/apk/lib/com.chemicalgorithm.platzigram.chemicalgorithm.fragment.ProfileFragment"
-                    android:id="@+id/Profile_image"
-                    android:layout_width="@dimen/circle_image_profile"
-                    android:layout_height="@dimen/circle_image_profile"
-                    android:layout_gravity="center|top"
-                    android:layout_marginTop="@dimen/marginTop_circleProfileImage"
-                    android:elevation="@dimen/elevation_circleImage_profile"
-                    android:src="@drawable/image"
-                    app:TargetX="@dimen/activity_vertical_margin"
-                    app:TargetY="@dimen/marginTopToolbar_CircleImageProfile"
-                    app:dependTargetY="@dimen/limitY_circleImageProfile"
-                    app:dependType="y"
-                    app:dependsOn="@+id/appBarProfile"
-                    app:layout_behavior="com.zoonref.SimpleViewBehavior"
-                    app:targetHeight="@dimen/height_circleImage_toolbar"
-                    app:targetWidth="@dimen/width_circleImage_toolbar">
-                </de.hdodenhof.circleimageview.CircleImageView>
-
 
                 <TextView
                     android:id="@+id/usernameProfile"
@@ -69,7 +69,6 @@
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/AppTheme.PopupOverlay">
-
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
@@ -81,7 +80,6 @@
         android:paddingTop="40dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
     </android.support.v7.widget.RecyclerView>
-
 
     <TextView
         xmlns:app="http://schemas.android.com/apk/lib/com.chemicalgorithm.platzigram.chemicalgorithm.fragment.ProfileFragment"
