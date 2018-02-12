@@ -1,4 +1,4 @@
-package com.chemicalgorithm.platzigram.chemicalgorithm.view;
+package com.chemicalgorithm.platzigram.view;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -9,9 +9,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.chemicalgorithm.platzigram.R;
-import com.chemicalgorithm.platzigram.chemicalgorithm.fragment.HomeFragment;
-import com.chemicalgorithm.platzigram.chemicalgorithm.fragment.ProfileFragment;
-import com.chemicalgorithm.platzigram.chemicalgorithm.fragment.SearchFragment;
+import com.chemicalgorithm.platzigram.fragment.HomeFragment;
+import com.chemicalgorithm.platzigram.fragment.ProfileFragment;
+import com.chemicalgorithm.platzigram.fragment.SearchFragment;
 
 public class ContainerActivity extends AppCompatActivity
 {

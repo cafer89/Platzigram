@@ -1,4 +1,4 @@
-package com.chemicalgorithm.platzigram.chemicalgorithm.adapter;
+package com.chemicalgorithm.platzigram.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chemicalgorithm.platzigram.R;
-import com.chemicalgorithm.platzigram.chemicalgorithm.model.Picture;
-import com.chemicalgorithm.platzigram.chemicalgorithm.view.PictureDetailActivity;
+import com.chemicalgorithm.platzigram.model.Picture;
+import com.chemicalgorithm.platzigram.view.PictureDetailActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.chemicalgorithm.platzigram.chemicalgorithm.fragment;
+package com.chemicalgorithm.platzigram.fragment;
 
 
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.chemicalgorithm.platzigram.R;
-import com.chemicalgorithm.platzigram.chemicalgorithm.adapter.PictureAdapterRecyclerView;
-import com.chemicalgorithm.platzigram.chemicalgorithm.model.Picture;
+import com.chemicalgorithm.platzigram.adapter.PictureAdapterRecyclerView;
+import com.chemicalgorithm.platzigram.model.Picture;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.chemicalgorithm.platzigram.chemicalgorithm.fragment;
+package com.chemicalgorithm.platzigram.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
