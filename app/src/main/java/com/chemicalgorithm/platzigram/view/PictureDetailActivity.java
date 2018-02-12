@@ -1,4 +1,4 @@
-package com.chemicalgorithm.platzigram.chemicalgorithm.view;
+package com.chemicalgorithm.platzigram.view;
 
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;

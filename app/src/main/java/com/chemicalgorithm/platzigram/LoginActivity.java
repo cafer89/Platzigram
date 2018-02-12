@@ -1,4 +1,4 @@
-package com.chemicalgorithm.platzigram.chemicalgorithm;
+package com.chemicalgorithm.platzigram;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,9 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.chemicalgorithm.platzigram.R;
-import com.chemicalgorithm.platzigram.chemicalgorithm.view.ContainerActivity;
-import com.chemicalgorithm.platzigram.chemicalgorithm.view.CreateAccountActivity;
+import com.chemicalgorithm.platzigram.view.ContainerActivity;
+import com.chemicalgorithm.platzigram.view.CreateAccountActivity;
 
 public class LoginActivity extends AppCompatActivity
 {

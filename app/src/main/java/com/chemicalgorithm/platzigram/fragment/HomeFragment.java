@@ -1,4 +1,5 @@
-package com.chemicalgorithm.platzigram.chemicalgorithm.fragment;
+package com.chemicalgorithm.platzigram.fragment;
+
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,32 +9,34 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
-import com.chemicalgorithm.platzigram.R;
 import android.view.ViewGroup;
-import com.chemicalgorithm.platzigram.chemicalgorithm.adapter.PictureAdapterRecyclerView;
-import com.chemicalgorithm.platzigram.chemicalgorithm.model.Picture;
+
+import com.chemicalgorithm.platzigram.R;
+import com.chemicalgorithm.platzigram.adapter.PictureAdapterRecyclerView;
+import com.chemicalgorithm.platzigram.model.Picture;
+
 import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProfileFragment extends Fragment
+public class HomeFragment extends Fragment
 {
 
 
-	public ProfileFragment()
+	public HomeFragment()
 	{
 		// Required empty public constructor
 	}
+
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState)
 	{
-		View view = inflater.inflate(R.layout.fragment_profile, container, false);
-		showToolbar("", false, view);
-
-		RecyclerView picturesRecycler = (RecyclerView) view.findViewById(R.id.pictureProfileRecycler);
+		View view = inflater.inflate(R.layout.fragment_home, container, false);
+		showToolbar(getResources().getString(R.string.bottombar_home), false, view);
+		RecyclerView picturesRecycler = (RecyclerView) view.findViewById(R.id.pictureRecycler);
 
 		LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
 		linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -43,6 +46,7 @@ public class ProfileFragment extends Fragment
 				new PictureAdapterRecyclerView(buildPictures(), R.layout.cardview_picture, getActivity());
 		picturesRecycler.setAdapter(pictureAdapterRecyclerView);
 		return view;
+
 	}
 
 	public ArrayList<Picture> buildPictures()
@@ -57,16 +61,19 @@ public class ProfileFragment extends Fragment
 		pictures.add(new Picture("http://www.novalandtours.com/images/guide/guilin.jpg",
 				"Anahí Salgado", "3 días", "0 me gusta"));
 		return pictures;
+
+
+
+
 	}
 
 	public void showToolbar(String title , boolean upButton, View view)
 	{
-		Toolbar toolbar = (Toolbar) view.findViewById(R.id.ProfileToolbar);
+		Toolbar toolbar = (Toolbar) view.findViewById(R.id.toobar);
 		//soporte para versiones anteriores a Lollipop
 		((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 		((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(title);
 		//en caso de que tenga botón de regreso o subir
 		((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
 	}
-
 }

@@ -1,4 +1,4 @@
-package com.chemicalgorithm.platzigram.chemicalgorithm.model;
+package com.chemicalgorithm.platzigram.model;
 
 /**
  * Created by Usuario on 26/01/2018.
