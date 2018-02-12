@@ -8,6 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     
+    <style name="AppTheme.PopupOverlay" parent="AppTheme.PopupOverlay"></style>
+    <style name="AppTheme.AppBarOverlay" parent="AppTheme.AppBarOverlay"></style>
+    
     <style name="RaisedButtonDark" parent="Theme.AppCompat.Light">
         <item name="colorButtonNormal">@color/colorPrimaryDark</item>
         <item name="colorControlHighlight">@color/colorPrimary</item> <!--controla el efecto de onda-->
