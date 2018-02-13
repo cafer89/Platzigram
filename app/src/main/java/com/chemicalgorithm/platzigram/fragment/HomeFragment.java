@@ -52,12 +52,14 @@ public class HomeFragment extends Fragment
 	public ArrayList<Picture> buildPictures()
 	{
 		ArrayList<Picture> pictures = new ArrayList<>();
-		pictures.add(new Picture("https://pbs.twimg.com/profile_images/953823390695088129/3HlXltqB_400x400.jpg",
-				"Danielita hermosa", "4 días", "3 me gusta"));
+		pictures.add(new Picture("https://scontent.fbaq1-1.fna.fbcdn.net/v/t1.0-0/p206x206/1522131_10151788882905633_431426053_n.jpg?_nc_eui2=v1%3AAeGWwI6P3UGPE49KmyH6VJjBFY-jdEACAVIUxgtiiTaKa7dOlhVXcv3xtu56O0mGe1IlUR7qaCCxjBS1RpiN6ZztbIBwwsxPFnl1utP7itbWfQ&oh=621c909a3e1b4f9134290954aca82a41&oe=5B132D56",
+				"Mamita", "5 días", "15 me gusta"));
 		pictures.add(new Picture("http://www.novalandtours.com/images/guide/guilin.jpg",
 				"Juan Pablo", "3 días", "10 me gusta"));
 		pictures.add(new Picture("https://i.pinimg.com/564x/fd/91/9a/fd919ae49b855848f2c407f363d44aef--gato-cheshire-the-cheshire.jpg",
 				"Carlos Pinzón", "2 días", "20 me gusta"));
+		pictures.add(new Picture("http://www.novalandtours.com/images/guide/guilin.jpg",
+				"Dani ", "3 días", "25 me gusta"));
 		pictures.add(new Picture("http://www.novalandtours.com/images/guide/guilin.jpg",
 				"Anahí Salgado", "3 días", "0 me gusta"));
 		return pictures;
