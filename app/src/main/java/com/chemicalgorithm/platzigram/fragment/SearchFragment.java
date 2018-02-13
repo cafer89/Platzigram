@@ -21,6 +21,8 @@ import java.util.ArrayList;
 public class SearchFragment extends Fragment
 {
 
+	RecyclerView recyclerView;
+
 
 	public SearchFragment()
 	{
@@ -36,16 +38,31 @@ public class SearchFragment extends Fragment
 		SearchView searchView = (SearchView) view.findViewById(R.id.search_view);
 		searchView.setSubmitButtonEnabled(true);
 
-		RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.search_recycler);
+		recyclerView = (RecyclerView) view.findViewById(R.id.search_recycler);
+		recyclerView.setVisibility(View.INVISIBLE);
 
-		GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
-		recyclerView.setLayoutManager(gridLayoutManager);
+		searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener()
+		{
+			@Override
+			public boolean onQueryTextSubmit(String query)
+			{
+				return false;
+			}
 
-		PictureAdapterRecyclerView pictureAdapterRecyclerView = new PictureAdapterRecyclerView(buildPictures(), R.layout.cardview_picture, getActivity());
-		recyclerView.setAdapter(pictureAdapterRecyclerView);
+			@Override
+			public boolean onQueryTextChange(String newText)
+			{
+				GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+				recyclerView.setLayoutManager(gridLayoutManager);
+				PictureAdapterRecyclerView pictureAdapterRecyclerView = new PictureAdapterRecyclerView(buildPictures(), R.layout.cardview_picture, getActivity());
+				recyclerView.setAdapter(pictureAdapterRecyclerView);
+				recyclerView.setVisibility(View.VISIBLE);
+				return true;
+			}
+		});
 		return view;
-
 	}
+
 
 	public ArrayList<Picture> buildPictures()
 	{

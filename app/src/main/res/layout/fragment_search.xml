@@ -8,10 +8,11 @@
     tools:context=".fragment.SearchFragment">
 
     <android.support.design.widget.AppBarLayout
-        android:fitsSystemWindows="true"
         android:layout_height="?attr/actionBarSize"
         android:layout_width="match_parent"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
 
         <android.widget.SearchView
@@ -20,18 +21,26 @@
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
             android:iconifiedByDefault="false"
+            android:fitsSystemWindows="true"
             />
 
     </android.support.design.widget.AppBarLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/search_recycler"
-            android:fitsSystemWindows="true"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            />
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/search_recycler"
+                android:fitsSystemWindows="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50dp"
+                />
+        </LinearLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>
