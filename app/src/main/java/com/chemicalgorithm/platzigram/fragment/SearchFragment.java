@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.chemicalgorithm.platzigram.R;
 import com.chemicalgorithm.platzigram.adapter.PictureAdapterRecyclerView;
@@ -46,17 +47,26 @@ public class SearchFragment extends Fragment
 			@Override
 			public boolean onQueryTextSubmit(String query)
 			{
-				return false;
+				if(query.equals("platzigram"))
+				{
+					GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+					recyclerView.setLayoutManager(gridLayoutManager);
+					PictureAdapterRecyclerView pictureAdapterRecyclerView = new PictureAdapterRecyclerView(buildPictures(), R.layout.cardview_picture, getActivity());
+					recyclerView.setAdapter(pictureAdapterRecyclerView);
+					recyclerView.setVisibility(View.VISIBLE);
+					return true;
+				}
+				else
+				{
+					Toast.makeText(getContext(),"Busqueda incorreta", Toast.LENGTH_SHORT).show();
+				}
+				return true;
 			}
 
 			@Override
 			public boolean onQueryTextChange(String newText)
 			{
-				GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
-				recyclerView.setLayoutManager(gridLayoutManager);
-				PictureAdapterRecyclerView pictureAdapterRecyclerView = new PictureAdapterRecyclerView(buildPictures(), R.layout.cardview_picture, getActivity());
-				recyclerView.setAdapter(pictureAdapterRecyclerView);
-				recyclerView.setVisibility(View.VISIBLE);
+
 				return true;
 			}
 		});
