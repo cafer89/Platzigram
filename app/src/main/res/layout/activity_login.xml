@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="com.chemicalgorithm.platzigram.LoginActivity">
+    tools:context="com.chemicalgorithm.platzigram.login.view.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
-                    android:id="@+id/passwordWrapper"
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:theme="@style/EditTextWhite"
@@ -100,7 +100,14 @@
                         android:text="@string/create_here"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/textsize_dont_have_account"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        />
+                    
+                    <ProgressBar
+                        android:id="@+id/progressbarLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
                 </RelativeLayout>
             </LinearLayout>
         </ScrollView>
