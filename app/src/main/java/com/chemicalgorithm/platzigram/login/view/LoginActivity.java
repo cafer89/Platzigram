@@ -97,4 +97,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 		password.setEnabled(false);
 		login.setEnabled(false);
 	}
+
+	@Override
+	protected void onStop()
+	{
+		super.onStop();
+		enableInputs();
+	}
 }
