@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.chemicalgorithm.platzigram.R;
+import com.chemicalgorithm.platzigram.login.presenter.LoginPresenter;
+import com.chemicalgorithm.platzigram.login.presenter.LoginPresenterImpl;
 import com.chemicalgorithm.platzigram.view.ContainerActivity;
 import com.chemicalgorithm.platzigram.view.CreateAccountActivity;
 
@@ -18,6 +20,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 	private TextInputEditText username, password;
 	private Button login;
 	private ProgressBar progressBarLogin;
+	private LoginPresenter loginPresenter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -29,6 +32,17 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 		password = (TextInputEditText) findViewById(R.id.password);
 		login = (Button) findViewById(R.id.login);
 		progressBarLogin = (ProgressBar) findViewById(R.id.progressbarLogin);
+		loginPresenter = new LoginPresenterImpl(this);
+
+		login.setOnClickListener(new View.OnClickListener()
+		{
+			@Override
+			public void onClick(View v)
+			{
+				loginPresenter.signIn(username.getText().toString(), password.getText().toString());
+			}
+		});
+
 
 	}
 
