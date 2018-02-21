@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.chemicalgorithm.platzigram.R;
 import com.chemicalgorithm.platzigram.login.presenter.LoginPresenter;
@@ -33,6 +34,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 		login = (Button) findViewById(R.id.login);
 		progressBarLogin = (ProgressBar) findViewById(R.id.progressbarLogin);
 		loginPresenter = new LoginPresenterImpl(this);
+		hideProgressBar();
 
 		login.setOnClickListener(new View.OnClickListener()
 		{
@@ -77,7 +79,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 	@Override
 	public void loginError(String error)
 	{
-
+		Toast.makeText(this, "ocurrió un error" + error, Toast.LENGTH_SHORT).show();
 	}
 
 	@Override

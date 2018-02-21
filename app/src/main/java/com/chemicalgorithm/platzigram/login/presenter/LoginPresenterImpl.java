@@ -23,17 +23,26 @@ public class LoginPresenterImpl implements LoginPresenter
 	@Override
 	public void signIn(String username, String password)
 	{
+		loginView.disableInputs();
+		loginView.showProgressBar();
 		loginInteractor.signIn(username, password);
 	}
 
 	@Override
 	public void loginSuccess()
 	{
+		//cuando el login es exitoso, le decimos a la vista que vaya al Home.
+		loginView.goHome();
+
+		loginView.hideProgressBar();
 	}
 
 	@Override
-	public void loginError()
+	public void loginError(String error)
 	{
+		loginView.enableInputs();
+		loginView.hideProgressBar();
 
+		loginView.loginError(error);
 	}
 }
