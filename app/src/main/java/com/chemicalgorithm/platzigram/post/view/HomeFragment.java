@@ -2,10 +2,13 @@ package com.chemicalgorithm.platzigram.post.view;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,7 +22,11 @@ import com.chemicalgorithm.platzigram.R;
 import com.chemicalgorithm.platzigram.adapter.PictureAdapterRecyclerView;
 import com.chemicalgorithm.platzigram.model.Picture;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +35,7 @@ public class HomeFragment extends Fragment
 {
 	private final int REQUEST_CAMERA = 1;
 	private FloatingActionButton fabCamera;
+	private String photoPathTemp = "";
 
 	public HomeFragment()
 	{
@@ -67,9 +75,40 @@ public class HomeFragment extends Fragment
 		Intent intentTakePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 		if(intentTakePicture.resolveActivity(getActivity().getPackageManager()) != null)
 		{
-			startActivityForResult(intentTakePicture, REQUEST_CAMERA);
+			File photoFile = null;
+
+			try
+			{
+				photoFile = createImageFile();
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+
+			if(photoFile != null)
+			{
+				//un uri es como una URl pero esta es identifier, no como la URL ques es de locarion
+				Uri photoUri = FileProvider.getUriForFile(getActivity(), "com.chemicalgorithm.platzigram", photoFile);
+				intentTakePicture.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+				startActivityForResult(intentTakePicture, REQUEST_CAMERA);
+			}
+
+
 
 		}
+	}
+
+	private File createImageFile() throws IOException
+	{
+		String timeStamp = new SimpleDateFormat("yyyyMMdd_HH-mm-ss").format(new Date());
+		String imageFileName = "JPEG_" + timeStamp + "_";
+		File storageDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+		File photo = File.createTempFile(imageFileName, ".jpg", storageDir);
+
+		photoPathTemp = "file:" + photo.getAbsolutePath();
+
+		return photo;
 	}
 
 	public ArrayList<Picture> buildPictures()
@@ -105,6 +144,9 @@ public class HomeFragment extends Fragment
 		if(requestCode == REQUEST_CAMERA && resultCode == getActivity().RESULT_OK)
 		{
 			Log.d("Home Fragment", "CAMERA OK !");
+			Intent i = new Intent(getActivity(), NewPostActivity.class);
+			i.putExtra("PHOTO_PATH_TEMP", photoPathTemp);
+			startActivity(i);
 		}
 	}
 }
