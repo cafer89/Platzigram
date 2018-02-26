@@ -176,7 +176,7 @@ public class HomeFragment extends Fragment
 			}
 			else
 			{
-				//no ejecuta el toast , o no lo veo 
+				//no ejecuta el toast , o no lo veo
 				Toast.makeText(getActivity(), "Permiso negado", Toast.LENGTH_LONG).show();
 			}
 		}
