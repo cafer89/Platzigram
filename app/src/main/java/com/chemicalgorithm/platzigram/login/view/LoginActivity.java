@@ -13,7 +13,6 @@ import com.chemicalgorithm.platzigram.R;
 import com.chemicalgorithm.platzigram.login.presenter.LoginPresenter;
 import com.chemicalgorithm.platzigram.login.presenter.LoginPresenterImpl;
 import com.chemicalgorithm.platzigram.view.ContainerActivity;
-import com.chemicalgorithm.platzigram.view.CreateAccountActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginView
 {
@@ -46,6 +45,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 		});
 
 
+	}
+
+	public void goCreateAccount(View v)
+	{
+		goCreateAccount();
 	}
 
 	@Override
