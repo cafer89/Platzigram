@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.chemicalgorithm.platzigram.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -89,6 +90,14 @@ public class CreateAccountActivity extends AppCompatActivity
 				{
 					Toast.makeText(CreateAccountActivity.this, "Ocurrió un error al crear la cuenta", Toast.LENGTH_SHORT).show();
 				}
+			}
+		}).addOnFailureListener(new OnFailureListener()
+		{
+			@Override
+			public void onFailure(@NonNull Exception e)
+			{
+				String error = e.getLocalizedMessage();
+				Toast.makeText(CreateAccountActivity.this, error, Toast.LENGTH_SHORT).show();
 			}
 		});
 	}
