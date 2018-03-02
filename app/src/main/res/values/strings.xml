@@ -43,4 +43,10 @@
         Nunc malesuada, enim id dignissim tempor, nisi orci lobortis diam, iaculis rhoncus lorem quam id dolor.
         Vestibulum dictum eleifend dolor eget placerat. Etiam id magna nibh. Lorem ipsum dolor sit amet,
         consectetur adipiscing elit. Nulla facilisi. Ut ac tincidunt massa. Praesent et odio tortor.</string>
+
+
+    <!-- Facebook Strings -->
+    <string name="facebook_app_id">1321823554617222</string>
+    <string name="fb_login_protocol_scheme">fb1321823554617222</string>
+
 </resources>

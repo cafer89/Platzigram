@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="com.chemicalgorithm.platzigram.LoginActivity">
+    tools:context="com.chemicalgorithm.platzigram.login.view.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -62,6 +62,7 @@
                     app:passwordToggleEnabled="true">   <!--el ojo -->
 
                     <android.support.design.widget.TextInputEditText
+                        android:id="@+id/password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/hint_password"
@@ -75,6 +76,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/btn_text_login"
                     android:theme="@style/RaisedButtonDark"/>
+
+                <com.facebook.login.widget.LoginButton
+                    android:id="@+id/login_facebook"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -100,7 +109,14 @@
                         android:text="@string/create_here"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/textsize_dont_have_account"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        />
+
+                    <ProgressBar
+                        android:id="@+id/progressbarLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
                 </RelativeLayout>
             </LinearLayout>
         </ScrollView>

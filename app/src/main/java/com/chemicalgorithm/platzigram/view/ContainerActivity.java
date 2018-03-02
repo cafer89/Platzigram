@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.chemicalgorithm.platzigram.R;
-import com.chemicalgorithm.platzigram.fragment.HomeFragment;
+import com.chemicalgorithm.platzigram.post.view.HomeFragment;
 import com.chemicalgorithm.platzigram.fragment.ProfileFragment;
 import com.chemicalgorithm.platzigram.fragment.SearchFragment;
 
