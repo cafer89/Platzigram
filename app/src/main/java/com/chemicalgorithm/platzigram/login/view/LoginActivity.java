@@ -139,6 +139,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 					SharedPreferences preferences = getSharedPreferences("USER", Context.MODE_PRIVATE);
 					SharedPreferences.Editor editor = preferences.edit();
 
+					//comentario 1
+
 					editor.putString("email", user.getEmail());
 					editor.commit();
 					Toast.makeText(LoginActivity.this, "Login facebook sxitoso", Toast.LENGTH_SHORT).show();
