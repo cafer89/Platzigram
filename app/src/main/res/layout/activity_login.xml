@@ -111,7 +111,7 @@
                         android:textSize="@dimen/textsize_dont_have_account"
                         android:textStyle="bold"
                         />
-                    
+
                     <ProgressBar
                         android:id="@+id/progressbarLogin"
                         android:layout_width="match_parent"

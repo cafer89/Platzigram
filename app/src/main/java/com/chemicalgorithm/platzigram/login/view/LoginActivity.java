@@ -76,6 +76,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 				{
 					//User logged
 					Log.w(TAG, "Usuario loggeado" + firebaseUser.getEmail());
+					goHome();
 				}
 				else
 				{
@@ -130,6 +131,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 			{
 				if(task.isSuccessful())
 				{
+					showProgressBar();
 					Toast.makeText(LoginActivity.this, "Login facebook sxitoso", Toast.LENGTH_SHORT).show();
 					goHome();
 				}
@@ -215,6 +217,15 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 	{
 		super.onStart();
 		firebaseAuth.addAuthStateListener(authStateListener);
+	}
+
+
+	//éste metodo captura el callbackManager de facebook inicializado en el metodo registerCallback y trae el estado de sesion.
+	//éste estado se le pasa al loginManager
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		callbackManager.onActivityResult(requestCode, resultCode, data);
+		super.onActivityResult(requestCode, resultCode, data);
 	}
 
 }
