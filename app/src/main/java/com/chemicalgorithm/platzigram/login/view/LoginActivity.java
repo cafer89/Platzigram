@@ -1,6 +1,8 @@
 package com.chemicalgorithm.platzigram.login.view;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -132,6 +134,13 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 				if(task.isSuccessful())
 				{
 					showProgressBar();
+					FirebaseUser user = task.getResult().getUser();
+
+					SharedPreferences preferences = getSharedPreferences("USER", Context.MODE_PRIVATE);
+					SharedPreferences.Editor editor = preferences.edit();
+
+					editor.putString("email", user.getEmail());
+					editor.commit();
 					Toast.makeText(LoginActivity.this, "Login facebook sxitoso", Toast.LENGTH_SHORT).show();
 					goHome();
 				}
@@ -141,7 +150,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 				}
 			}
 		});
-
 	}
 
 	public void signIn(String username, String password)
