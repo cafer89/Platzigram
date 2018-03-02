@@ -15,8 +15,22 @@ import com.chemicalgorithm.platzigram.R;
 import com.chemicalgorithm.platzigram.login.presenter.LoginPresenter;
 import com.chemicalgorithm.platzigram.login.presenter.LoginPresenterImpl;
 import com.chemicalgorithm.platzigram.view.ContainerActivity;
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.Arrays;
 
 public class LoginActivity extends AppCompatActivity implements LoginView
 {
@@ -27,8 +41,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 
 	private TextInputEditText username, password;
 	private Button login;
+	private LoginButton loginFacebook;
 	private ProgressBar progressBarLogin;
 	private LoginPresenter loginPresenter;
+	private CallbackManager callbackManager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -36,6 +52,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
+		FacebookSdk.sdkInitialize(getApplicationContext());
+		callbackManager = CallbackManager.Factory.create();
+
+		loginFacebook = (LoginButton) findViewById(R.id.login_facebook);
 		username = (TextInputEditText) findViewById(R.id.username);
 		password = (TextInputEditText) findViewById(R.id.password);
 		login = (Button) findViewById(R.id.login);
@@ -46,7 +66,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 		//el metodo apunta al objeto JSON de mi proyecto el cual apunta a mi consola y recibe toda
 		//la configuración que yo tenga.
 		firebaseAuth = FirebaseAuth.getInstance();
-
 		authStateListener = new FirebaseAuth.AuthStateListener()
 		{
 			@Override
@@ -73,6 +92,54 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 				signIn(username.getText().toString(), password.getText().toString());
 			}
 		});
+
+		loginFacebook.setReadPermissions(Arrays.asList("email"));
+
+		loginFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>()
+		{
+			@Override
+			public void onSuccess(LoginResult loginResult)
+			{
+				Log.w(TAG, "Facebook Login Succes Token: " + loginResult.getAccessToken().getToken());
+				signInFacebookFirebase(loginResult.getAccessToken());
+
+			}
+
+			@Override
+			public void onCancel()
+			{
+				Log.w(TAG, "Facebook Login Cancel");
+			}
+
+			@Override
+			public void onError(FacebookException error)
+			{
+				Log.w(TAG, "Facebook Login ERROR: " + error.toString());
+				error.printStackTrace();
+			}
+		});
+	}
+
+	private void signInFacebookFirebase(AccessToken accessToken)
+	{
+		AuthCredential authCredential = FacebookAuthProvider.getCredential(accessToken.getToken());
+		firebaseAuth.signInWithCredential(authCredential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
+		{
+			@Override
+			public void onComplete(@NonNull Task<AuthResult> task)
+			{
+				if(task.isSuccessful())
+				{
+					Toast.makeText(LoginActivity.this, "Login facebook sxitoso", Toast.LENGTH_SHORT).show();
+					goHome();
+				}
+				else
+				{
+					Toast.makeText(LoginActivity.this, "Login NO exitoso", Toast.LENGTH_SHORT).show();
+				}
+			}
+		});
+
 	}
 
 	public void signIn(String username, String password)
