@@ -1,12 +1,17 @@
 package com.chemicalgorithm.platzigram.post.view;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,10 +21,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.chemicalgorithm.platzigram.R;
 import com.chemicalgorithm.platzigram.adapter.PictureAdapterRecyclerView;
 import com.chemicalgorithm.platzigram.model.Picture;
+import com.chemicalgorithm.platzigram.view.ContainerActivity;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,6 +39,7 @@ import java.util.Date;
  */
 public class HomeFragment extends Fragment
 {
+	private int REQUEST_CAMERA_CODE = 1;
 	private final int REQUEST_CAMERA = 1;
 	private FloatingActionButton fabCamera;
 	private String photoPathTemp = "";
@@ -72,29 +80,35 @@ public class HomeFragment extends Fragment
 	private void takePicture()
 	{
 		Intent intentTakePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-		if(intentTakePicture.resolveActivity(getActivity().getPackageManager()) != null)
+		int permissionCheck = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA);
+
+		if(permissionCheck == PackageManager.PERMISSION_GRANTED)
 		{
-			File photoFile = null;
-
-			try
+			if(intentTakePicture.resolveActivity(getActivity().getPackageManager()) != null)
 			{
-				photoFile = createImageFile();
+				File photoFile = null;
+
+				try
+				{
+					photoFile = createImageFile();
+				}
+				catch (Exception e)
+				{
+					e.printStackTrace();
+				}
+
+				if(photoFile != null)
+				{
+					//un uri es como una URl pero esta es identifier, no como la URL ques es de locarion
+					Uri photoUri = FileProvider.getUriForFile(getActivity(), "com.chemicalgorithm.platzigram", photoFile);
+					intentTakePicture.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+					startActivityForResult(intentTakePicture, REQUEST_CAMERA);
+				}
 			}
-			catch (Exception e)
-			{
-				e.printStackTrace();
-			}
-
-			if(photoFile != null)
-			{
-				//un uri es como una URl pero esta es identifier, no como la URL ques es de locarion
-				Uri photoUri = FileProvider.getUriForFile(getActivity(), "com.chemicalgorithm.platzigram", photoFile);
-				intentTakePicture.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-				startActivityForResult(intentTakePicture, REQUEST_CAMERA);
-			}
-
-
-
+		}
+		else
+		{
+			ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.CAMERA},REQUEST_CAMERA_CODE);
 		}
 	}
 
@@ -148,4 +162,24 @@ public class HomeFragment extends Fragment
 			startActivity(i);
 		}
 	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
+	{
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+		if(requestCode == REQUEST_CAMERA_CODE)
+		{
+			if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+			{
+				takePicture();
+			}
+			else
+			{
+				//no ejecuta el toast , o no lo veo
+				Toast.makeText(getActivity(), "Permiso negado", Toast.LENGTH_LONG).show();
+			}
+		}
+	}
 }
+

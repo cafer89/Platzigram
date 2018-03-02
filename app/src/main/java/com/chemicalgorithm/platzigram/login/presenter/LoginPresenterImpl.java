@@ -1,8 +1,11 @@
 package com.chemicalgorithm.platzigram.login.presenter;
 
+import android.app.Activity;
+
 import com.chemicalgorithm.platzigram.login.interactor.LoginInteractor;
 import com.chemicalgorithm.platzigram.login.interactor.LoginInteractorImpl;
 import com.chemicalgorithm.platzigram.login.view.LoginView;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * Created by Usuario on 20/02/2018.
@@ -21,11 +24,11 @@ public class LoginPresenterImpl implements LoginPresenter
 	}
 
 	@Override
-	public void signIn(String username, String password)
+	public void signIn(String username, String password, Activity activity, FirebaseAuth firebaseAuth)
 	{
 		loginView.disableInputs();
 		loginView.showProgressBar();
-		loginInteractor.signIn(username, password);
+		loginInteractor.signIn(username, password, activity, firebaseAuth);
 	}
 
 	@Override
