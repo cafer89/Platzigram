@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.chemicalgorithm.platzigram.R;
 import com.chemicalgorithm.platzigram.model.Picture;
-import com.chemicalgorithm.platzigram.view.PictureDetailActivity;
+import com.chemicalgorithm.platzigram.post.view.PictureDetailActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
