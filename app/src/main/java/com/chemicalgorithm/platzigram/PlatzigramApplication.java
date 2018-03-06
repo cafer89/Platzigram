@@ -7,6 +7,8 @@ import android.util.Log;
 import com.facebook.FacebookSdk;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 /**
  * Created by Usuario on 26/02/2018.
@@ -14,6 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class PlatzigramApplication extends Application
 {
+	private FirebaseStorage firebaseStorage;
 	private FirebaseAuth firebaseAuth;
 	private FirebaseAuth.AuthStateListener authStateListener;
 	private final String TAG = "PlatzigramApplication";
@@ -45,5 +48,11 @@ public class PlatzigramApplication extends Application
 			}
 		};
 
+		firebaseStorage = FirebaseStorage.getInstance();
+	}
+
+	public StorageReference getStorageReference()
+	{
+		return firebaseStorage.getReference();
 	}
 }

@@ -141,7 +141,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 
 					editor.putString("email", user.getEmail());
 					editor.commit();
-					Toast.makeText(LoginActivity.this, "Login facebook sxitoso", Toast.LENGTH_SHORT).show();
+					Toast.makeText(LoginActivity.this, "Login facebook exitoso", Toast.LENGTH_SHORT).show();
 					goHome();
 				}
 				else
