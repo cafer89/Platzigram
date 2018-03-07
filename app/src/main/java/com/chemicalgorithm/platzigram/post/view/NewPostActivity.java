@@ -14,6 +14,7 @@ import com.chemicalgorithm.platzigram.PlatzigramApplication;
 import com.chemicalgorithm.platzigram.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.crash.FirebaseCrash;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
@@ -88,6 +89,7 @@ public class NewPostActivity extends AppCompatActivity
 			{
 				Log.e(TAG, "Error al subir la foto" + e.toString());
 				e.printStackTrace();
+				FirebaseCrash.report(e);
 			}
 		}).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>()
 		{

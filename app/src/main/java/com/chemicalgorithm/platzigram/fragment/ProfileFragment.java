@@ -12,6 +12,8 @@ import com.chemicalgorithm.platzigram.R;
 import android.view.ViewGroup;
 import com.chemicalgorithm.platzigram.adapter.PictureAdapterRecyclerView;
 import com.chemicalgorithm.platzigram.model.Picture;
+import com.google.firebase.crash.FirebaseCrash;
+
 import java.util.ArrayList;
 
 /**
@@ -19,6 +21,8 @@ import java.util.ArrayList;
  */
 public class ProfileFragment extends Fragment
 {
+	private static final String TAG = "Profile Fragment";
+
 	public ProfileFragment()
 	{
 		// Required empty public constructor
@@ -28,6 +32,7 @@ public class ProfileFragment extends Fragment
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState)
 	{
+		FirebaseCrash.log("Inicializando" + TAG);
 		View view = inflater.inflate(R.layout.fragment_profile, container, false);
 		showToolbar("", false, view);
 

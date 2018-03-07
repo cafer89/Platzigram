@@ -27,6 +27,7 @@ import com.chemicalgorithm.platzigram.R;
 import com.chemicalgorithm.platzigram.adapter.PictureAdapterRecyclerView;
 import com.chemicalgorithm.platzigram.model.Picture;
 import com.chemicalgorithm.platzigram.view.ContainerActivity;
+import com.google.firebase.crash.FirebaseCrash;
 
 import java.io.File;
 import java.io.IOException;
@@ -53,6 +54,8 @@ public class HomeFragment extends Fragment
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState)
 	{
+		FirebaseCrash.report(new Exception("My first Firebase non-fatal error on Android"));
+
 		View view = inflater.inflate(R.layout.fragment_home, container, false);
 		showToolbar(getResources().getString(R.string.bottombar_home), false, view);
 		RecyclerView picturesRecycler = (RecyclerView) view.findViewById(R.id.pictureRecycler);
@@ -95,6 +98,7 @@ public class HomeFragment extends Fragment
 				catch (Exception e)
 				{
 					e.printStackTrace();
+					FirebaseCrash.report(e);
 				}
 
 				if(photoFile != null)
