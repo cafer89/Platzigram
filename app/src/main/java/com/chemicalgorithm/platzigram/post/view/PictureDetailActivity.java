@@ -13,6 +13,7 @@ import com.chemicalgorithm.platzigram.PlatzigramApplication;
 import com.chemicalgorithm.platzigram.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.crash.FirebaseCrash;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
@@ -56,6 +57,7 @@ public class PictureDetailActivity extends AppCompatActivity
 			{
 				Toast.makeText(app, "Ocurrió un error al traer la foto", Toast.LENGTH_SHORT).show();
 				e.printStackTrace();
+				FirebaseCrash.report(e);
 			}
 		});
 

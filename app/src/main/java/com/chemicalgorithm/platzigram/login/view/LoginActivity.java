@@ -31,6 +31,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.crash.FirebaseCrash;
 
 import java.util.Arrays;
 
@@ -119,6 +120,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 			{
 				Log.w(TAG, "Facebook Login ERROR: " + error.toString());
 				error.printStackTrace();
+				FirebaseCrash.report(error);
 			}
 		});
 	}
@@ -141,11 +143,13 @@ public class LoginActivity extends AppCompatActivity implements LoginView
 
 					editor.putString("email", user.getEmail());
 					editor.commit();
+					FirebaseCrash.logcat(Log.WARN,TAG,"Login Facebook exitoso");
 					Toast.makeText(LoginActivity.this, "Login facebook exitoso", Toast.LENGTH_SHORT).show();
 					goHome();
 				}
 				else
 				{
+					FirebaseCrash.logcat(Log.ERROR,TAG,"Login Facebook NO exitoso");
 					Toast.makeText(LoginActivity.this, "Login NO exitoso", Toast.LENGTH_SHORT).show();
 				}
 			}

@@ -21,6 +21,7 @@ import com.chemicalgorithm.platzigram.fragment.SearchFragment;
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.crash.FirebaseCrash;
 
 public class ContainerActivity extends AppCompatActivity
 {
@@ -35,6 +36,7 @@ public class ContainerActivity extends AppCompatActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_container);
+		FirebaseCrash.log("Inicializando" + TAG);
 		firebaseInitialize();
 
 		BottomNavigationView bottomBar = (BottomNavigationView) findViewById(R.id.bottomBar);

@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.chemicalgorithm.platzigram.R;
 import com.chemicalgorithm.platzigram.adapter.PictureAdapterRecyclerView;
 import com.chemicalgorithm.platzigram.model.Picture;
+import com.google.firebase.crash.FirebaseCrash;
 
 import java.util.ArrayList;
 
@@ -23,6 +24,7 @@ public class SearchFragment extends Fragment
 {
 
 	RecyclerView recyclerView;
+	private static final String TAG ="Search Fragment";
 
 
 	public SearchFragment()
@@ -35,6 +37,7 @@ public class SearchFragment extends Fragment
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState)
 	{
+		FirebaseCrash.log("iniciaizando" + TAG);
 		View view = inflater.inflate(R.layout.fragment_search, container, false);
 		SearchView searchView = (SearchView) view.findViewById(R.id.search_view);
 		searchView.setSubmitButtonEnabled(true);
