@@ -68,6 +68,7 @@ public class ContainerActivity extends AppCompatActivity
 
 	private void selectFragment(Fragment fragment)
 	{
+		Log.i(TAG,"el fragmento es" + fragment);
 		getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, fragment)
 				.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
 				.addToBackStack(null)
