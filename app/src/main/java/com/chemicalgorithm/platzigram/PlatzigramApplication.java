@@ -22,6 +22,8 @@ public class PlatzigramApplication extends Application
 	private FirebaseAuth.AuthStateListener authStateListener;
 	private final String TAG = "PlatzigramApplication";
 
+	//comentario de prueba en android studio 3.0.1
+
 
 	@Override
 	public void onCreate()
