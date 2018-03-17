@@ -23,6 +23,7 @@ public class PlatzigramApplication extends Application
 	private final String TAG = "PlatzigramApplication";
 
 	//comentario de prueba en android studio 3.0.1
+	//parece que funcionó
 
 
 	@Override
